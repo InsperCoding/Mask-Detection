@@ -35,7 +35,7 @@ def run(frame):
 
 
 parser = argparse.ArgumentParser(description='Code for Cascade Classifier tutorial.')
-parser.add_argument('--face_cascade', help='Path to face cascade.', default='/home/nicolas/.local/lib/python3.6/site-packages/cv2/data/haarcascade_frontalface_alt2.xml')
+parser.add_argument('--face_cascade', help='Path to face cascade.', default='/home/sua_maquina/.local/lib/python3.6/site-packages/cv2/data/haarcascade_frontalface_alt.xml')
 parser.add_argument('--camera', help='Camera divide number.', type=int, default=0)
 args = parser.parse_args()
 face_cascade_name = args.face_cascade
