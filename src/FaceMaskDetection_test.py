@@ -5,13 +5,13 @@ import numpy as np
 import argparse
 from keras.models import load_model
 import os
-model = load_model("model2-010.model")
+model = load_model("model2-005.model")
 results = {0:'without mask', 1:'mask'}
 GR_dict = {0:(0, 0, 255), 1:(0, 255, 0)}
 rect_size = 4
 
 def run(frame):
-    frame_gray = cv2.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     frame_gray = cv2.equalizeHist(frame_gray)
 
     rerect_size = cv2.resize(img, (img.shape[1] // rect_size, img.shape[0] // rect_size))
@@ -35,7 +35,7 @@ def run(frame):
 
 
 parser = argparse.ArgumentParser(description='Code for Cascade Classifier tutorial.')
-parser.add_argument('--face_cascade', help='Path to face cascade.', default='/home/sua_maquina/.local/lib/python3.6/site-packages/cv2/data/haarcascade_frontalface_alt.xml')
+parser.add_argument('--face_cascade', help='Path to face cascade.', default='haarcascade_frontalface_default.xml')
 parser.add_argument('--camera', help='Camera divide number.', type=int, default=0)
 args = parser.parse_args()
 face_cascade_name = args.face_cascade
@@ -62,7 +62,7 @@ while True:
 
     run(img)
     
-    if cv2.waitKey(10) == 27: 
+    if cv2.waitKey(10) == 27: # Press "esq" to end program
         break
 
 cap.release()
